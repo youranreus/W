@@ -20,7 +20,7 @@
     </div>
     <?php if($this->is('single')): ?>
     <div id="sliderbar-comments" class="sliderbar-content">
-      <div class="cm-article" data-key="<?php $this->cid(); ?>"></div>
+      <p>评论框没有写</p>
     </div>
     <?php endif; ?>
 

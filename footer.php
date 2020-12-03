@@ -6,8 +6,6 @@
   <p class="right"><a href="http://beian.miit.gov.cn/">粤ICP备19008557号</a></p>
 </div><!-- end #footer -->
 <?php $this->need('sliderbar.php'); ?>
-<link rel="stylesheet" href="//comment.moe/dest/static/css/plus.css">
-<script src="//comment.moe/dest/static/js/build.js" charset="UTF-8"></script>
 <?php $this->footer(); ?>
 </body>
 <img id="gototop" src="<?php $this->options->themeUrl('ico/top.svg'); ?>"></img>
