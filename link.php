@@ -58,21 +58,23 @@ $this -> need('header.php');
      </div>
    </li>
    ", 0, "好朋友"); ?>
+
+   <h3>项目</h3>
+
+   <?php Links_Plugin::output("
+   <li class='clear'>
+     <a href='{url}' target='_blank'></a>
+     <img src='{image}' alt='{name}'/>
+     <div class='link-item-content'>
+       <h3>{name}</h3>
+       <span>{sort}</span>
+       <p>{description}</p>
+     </div>
+   </li>
+   ", 0, "项目"); ?>
   </div>
 
-  <h3>项目</h3>
 
-  <?php Links_Plugin::output("
-  <li class='clear'>
-    <a href='{url}' target='_blank'></a>
-    <img src='{image}' alt='{name}'/>
-    <div class='link-item-content'>
-      <h3>{name}</h3>
-      <span>{sort}</span>
-      <p>{description}</p>
-    </div>
-  </li>
-  ", 0, "项目"); ?>
  </div>
 
   <div id="articleInfo">

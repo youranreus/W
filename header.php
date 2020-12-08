@@ -14,16 +14,34 @@
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css?v=2'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css?v=1.91'); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/W/prism.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/W/typo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/G/CSS/OwO.min.css">
 
-    <link rel="icon" type="image/png" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="<?php $this->options->logoUrl(); ?>">
     <link href="/favicon.ico" rel="icon">
     <link rel="apple-touch-icon-precomposed" href="/favicon.ico">
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
+
+    <script>
+      <?php echo $this->options->CustomJSh;?>
+    </script>
+
+    <style>
+    <?php if ($this->options->enableImgShadow == 0): ?>
+      .typo img{
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+    <?php endif; ?>
+
+
+    </style>
+
 </head>
 <body>
 
@@ -34,16 +52,16 @@
 
     <h2>
       <?php if($this->is('post') or $this->is('page')): ?>
-        <a href="<?php Helper::options()->siteUrl()?>"><?php $this->title();?><img src="<?php $this->options->themeUrl('ico/home.svg'); ?>"></img></a>
+        <a href="#" onclick="window.history.back();"><?php $this->title();?><img src="<?php $this->options->themeUrl('ico/home.svg'); ?>"></img></a>
       <?php elseif($this->is('archive')): ?>
-        <a href="<?php Helper::options()->siteUrl()?>"><?php $this->archiveTitle(array(
+        <a href="#" onclick="window.history.back();"><?php $this->archiveTitle(array(
             'category'  =>  _t('「%s」'),
             'search'    =>  _t('「%s」'),
             'tag'       =>  _t('「%s」'),
             'author'    =>  _t('「%s」发布的文章')
         ), '', ''); ?><img src="<?php $this->options->themeUrl('ico/home.svg'); ?>"></img></a>
       <?php else: ?>
-        <?php $this->options->title(); ?>
+        <a href="/" title="<?php Helper::options()->siteUrl()?>"><?php $this->options->title(); ?></a>
       <?php endif; ?>
     </h2>
     <?php if($this->is('post')): ?>
@@ -54,6 +72,6 @@
   </div>
   <?php if($this->is('post') or $this->is('page')): ?>
     <div id="header-f">
-      <h2><a href="<?php Helper::options()->siteUrl()?>"><?php $this->title();?></a></h2>
+      <h2><a href="#" onclick="window.history.back();"><?php $this->title();?></a></h2>
     </div>
   <?php endif; ?>
