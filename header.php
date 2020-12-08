@@ -52,9 +52,9 @@
 
     <h2>
       <?php if($this->is('post') or $this->is('page')): ?>
-        <a href="#" onclick="window.history.back();"><?php $this->title();?><img src="<?php $this->options->themeUrl('ico/home.svg'); ?>"></img></a>
+        <a href="#" onclick="window.history.go(-1)"><?php $this->title();?><img src="<?php $this->options->themeUrl('ico/home.svg'); ?>"></img></a>
       <?php elseif($this->is('archive')): ?>
-        <a href="#" onclick="window.history.back();"><?php $this->archiveTitle(array(
+        <a href="#" onclick="window.history.go(-1)"><?php $this->archiveTitle(array(
             'category'  =>  _t('「%s」'),
             'search'    =>  _t('「%s」'),
             'tag'       =>  _t('「%s」'),
@@ -72,6 +72,6 @@
   </div>
   <?php if($this->is('post') or $this->is('page')): ?>
     <div id="header-f">
-      <h2><a href="#" onclick="window.history.back();"><?php $this->title();?></a></h2>
+      <h2><a href="#" onclick="window.history.go(-1)"><?php $this->title();?></a></h2>
     </div>
   <?php endif; ?>

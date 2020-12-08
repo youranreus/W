@@ -99,13 +99,6 @@ function themeConfig($form) {
     <input type="submit" name="type" class="btn btn-s" value="备份模板数据" />&nbsp;&nbsp;<input type="submit" name="type" class="btn btn-s" value="还原模板数据" />&nbsp;&nbsp;<input type="submit" name="type" class="btn btn-s" value="删除备份数据" /></form></div>';
 }
 
-function themeFields(Typecho_Widget_Helper_Layout $layout)
-{
-    $excerpt = new Typecho_Widget_Helper_Form_Element_Textarea('excerpt', null, null, '文章引语', '会显示在标题下方，单栏模式时会覆盖文章摘要');
-    $layout->addItem($excerpt);
-    $imgurl = new Typecho_Widget_Helper_Form_Element_Text('imgurl', null, null, '文章主图', '该图片会用于主页文章列表及文章头图的显示。');
-    $layout->addItem($imgurl);
-}
 
 //感谢泽泽大佬的代码
 Typecho_Plugin::factory('admin/write-post.php')->bottom = array('Wx', 'addButton');
