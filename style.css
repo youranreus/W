@@ -209,8 +209,6 @@ blockquote p{
 	-ms-transition: .6s ease all;
 	-o-transition: .6s ease all;
 	transition: .6s ease all;
-  -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
 }
 .menu-wrap-show{
   display:block!important;
