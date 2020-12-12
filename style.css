@@ -397,7 +397,7 @@ video{
   float: right;
 }
 #comment-form{
-
+  overflow: hidden;
 }
 #comment-form .text{
   border: 2px solid #eee;
