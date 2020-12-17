@@ -11,7 +11,7 @@
  }
 
 *{
-  font-family: 'google';
+  font-family: 'google',"微軟正黑體","Droid Serif",Georgia,"Times New Roman","PingFang SC","Hiragino Sans GB","Source Han Sans CN","WenQuanYi Micro Hei","Microsoft Yahei",serif;
 	-webkit-appearance:none;
   -webkit-tap-highlight-color: transparent;
 }
