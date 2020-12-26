@@ -39,6 +39,13 @@
       }
     <?php endif; ?>
 
+    <?php if ($this->options->CommentSwitcher == 0): ?>
+    #articleInfo{
+      margin-bottom: 20px;
+    }
+
+    <?php endif; ?>
+
     <?php echo $this->options->CustomCSS;?>
 
     </style>

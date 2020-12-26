@@ -39,11 +39,14 @@
       <?php endwhile; ?>
     </div>
 
-    <?php if($this->is('single')): ?>
-    <div id="sliderbar-comments" class="sliderbar-content">
-      <?php $this->need('comments.php'); ?>
-    </div>
+    <?php if ($this->options->CommentSwitcher == 1): ?>
+      <?php if($this->is('single')): ?>
+        <div id="sliderbar-comments" class="sliderbar-content">
+          <?php $this->need('comments.php'); ?>
+        </div>
+      <?php endif; ?>
     <?php endif; ?>
+
 
     <div class="sliderbar-content" id="sliderbar-hitokoto hitokoto">
       <a href="#" id="hitokoto_text">:D 获取中...</a>

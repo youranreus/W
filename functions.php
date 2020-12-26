@@ -33,6 +33,12 @@ function themeConfig($form) {
     ) , '1', _t('给你的图片加上阴影') , _t('默认为开启'));
     $form->addInput($enableImgShadow);
 
+    $CommentSwitcher = new Typecho_Widget_Helper_Form_Element_Radio('CommentSwitcher', array(
+        '1' => _t('侧边栏') ,
+        '0' => _t('文章末')
+    ) , '1', _t('评论框位置') , _t('默认为侧边栏'));
+    $form->addInput($CommentSwitcher);
+
     $CustomCSS = new Typecho_Widget_Helper_Form_Element_Textarea('CustomCSS', NULL, NULL, _t('自定义CSS'), _t('#logo{...}'));
     $form->addInput($CustomCSS);
     $CustomJSh = new Typecho_Widget_Helper_Form_Element_Textarea('CustomJSh', NULL, NULL, _t('自定义JS(head前)'), _t('var...'));
