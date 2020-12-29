@@ -1,20 +1,7 @@
-var client_height = document.documentElement.clientHeight || document.body.clientHeight;
-var gototop = document.getElementById('gototop');
-
-
-if(document.getElementById("articleBody"))
-{
-  var header = document.getElementById("header");
-  var header_f = document.getElementById("header-f");
-  var article = document.getElementById("articleBody");
-  var num = header.offsetTop;
-  var a = header.offsetHeight;
-  var articleh = article.offsetTop;
-}
-
 window.onload = function(){
   emotion();
-  //OwO设置
+  nightModeBtn();
+  scrollTopListener();
   Smilies = {
       dom: function(id) {
           return document.getElementById(id);
@@ -32,24 +19,35 @@ window.onload = function(){
 
 }
 
-window.onscroll = function(){
-    var osTop = document.documentElement.scrollTop || document.body.scrollTop;
-    if (osTop >= client_height) {
-        gototop.style.display = 'block';
-        gototop.style.opacity = '1';
-    }else{
-        gototop.style.display = 'none';
-    }
-    if(document.getElementById("articleBody"))
-    {
-      var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-      if(scrollTop >= num){
-          header_f.className = "header-fixed";
+function scrollTopListener(){
+  var client_height = document.documentElement.clientHeight || document.body.clientHeight;
+  var gototop = document.getElementById('gototop');
+  window.onscroll = function(){
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if (osTop >= client_height) {
+          gototop.style.display = 'block';
+          gototop.style.opacity = '1';
       }else{
-          header_f.className = "";
+          gototop.style.display = 'none';
       }
-    }
-};
+      if(document.getElementById("articleBody"))
+      {
+        var header = document.getElementById("header");
+        var header_f = document.getElementById("header-f");
+        var article = document.getElementById("articleBody");
+        var num = header.offsetTop;
+        var a = header.offsetHeight;
+        var articleh = article.offsetTop;
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if(scrollTop >= num){
+            header_f.className = "header-fixed";
+        }else{
+            header_f.className = "";
+        }
+      }
+  };
+}
+
 
 var timer = null;
 function scrollTop(){
@@ -95,7 +93,6 @@ function addClass(el, className) {
 }
 
 function hasClass(el, className) {
-    // \s匹配任何空白字符，包括空格、制表符、换页符等等
     let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
     return reg.test(el.className)
 }
@@ -133,4 +130,34 @@ function OwO_show(){
      addClass(OwOPanel, 'display-none');
      OwOPanel.setAttribute("style", "max-height:0px;");
    }
+}
+
+function switchNightMode(){
+    var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+    var night_btn = document.getElementById("night-mode");
+    if(night == '0'){
+        document.querySelector('link[title="dark"]').disabled = true;
+        document.querySelector('link[title="dark"]').disabled = false;
+        document.cookie = "night=1;path=/";
+        addClass(night_btn, 'night-mode-on');
+        console.log('夜间模式开启');
+    }else{
+        document.querySelector('link[title="dark"]').disabled = true;
+        document.cookie = "night=0;path=/";
+        removeClass(night_btn, 'night-mode-on');
+        console.log('夜间模式关闭');
+    }
+}
+
+function nightModeBtn(){
+  if(document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") == ''){
+      if(new Date().getHours() > 22 || new Date().getHours() < 6){
+        document.getElementById("night-mode").classList.add("night-mode-on");
+      }
+  }else{
+      var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+      if(night == '1'){
+        document.getElementById("night-mode").classList.add("night-mode-on");
+      }
+  }
 }

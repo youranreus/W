@@ -14,6 +14,11 @@
   font-family: 'google',"微軟正黑體","Droid Serif",Georgia,"Times New Roman","PingFang SC","Hiragino Sans GB","Source Han Sans CN","WenQuanYi Micro Hei","Microsoft Yahei",serif;
 	-webkit-appearance:none;
   -webkit-tap-highlight-color: transparent;
+
+  transition: color,background .5s;
+  -moz-transition: color,background .5s; /* Firefox 4 */
+  -webkit-transition: color,background .5s; /* Safari 和 Chrome */
+  -o-transition: color,background .5s; /* Opera */
 }
 
 body,html{
@@ -170,8 +175,8 @@ blockquote p{
   left:-22.5rem;
   height: 100%;
   width:22.5rem;
-  z-index: 991;
   overflow-y: auto;
+  z-index: 99;
   transition: all .5s;
 }
 #sliderbar::-webkit-scrollbar {
@@ -182,6 +187,7 @@ blockquote p{
 }
 .sliderbar-container{
   padding:25px;
+  z-index: 100;
 }
 #menu{
   position: fixed;
@@ -204,11 +210,7 @@ blockquote p{
   height: 100%;
   width : 100%;
   cursor: pointer;
-  -webkit-transition: .6s ease all;
-	-moz-transition: .6s ease all;
-	-ms-transition: .6s ease all;
-	-o-transition: .6s ease all;
-	transition: .6s ease all;
+  transition: all .5s;
 }
 .menu-wrap-show{
   display:block!important;
@@ -219,6 +221,10 @@ blockquote p{
     backdrop-filter: blur(20px);
   border-radius: 10px;
   padding: 15px;
+  margin-bottom:30px;
+  overflow: hidden;
+}
+.sliderbar-content-none-background{
   margin-bottom:30px;
   overflow: hidden;
 }
@@ -250,6 +256,9 @@ blockquote p{
   width: 25px;
   height: 25px;
 }
+.github-ico{
+    background: rgba(0,0,0,0.4);
+}
 #sliderbar-toc h3{
   border-left:3px solid #eee;
   padding-left:10px;
@@ -267,6 +276,22 @@ blockquote p{
 #sliderbar-menu a:hover{
   background:#07F;
   color:#fff;
+}
+
+#night-mode{
+  position: fixed;
+  right: 50px;
+  bottom: 108px;
+  height: 24px;
+  padding: 13px;
+  z-index:999;
+  cursor: pointer;
+  background-color: rgba(250, 250, 250, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid #eee;
+  border-radius: 1000rem;
+  z-index: 99;
 }
 
 
@@ -292,7 +317,7 @@ blockquote p{
 }
 #header span{
   color:#919191;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
 }
 #header-f{
   -webkit-backdrop-filter: blur(20px);
@@ -476,7 +501,6 @@ input.submit{
   margin:0;
   padding: 0;
   margin-top:15px;
-  margin-bottom:-4px!important;
 }
 .comment-child{
   border: none;
@@ -532,7 +556,7 @@ input.submit{
 }
 #gototop{
 	position: fixed;
-  bottom:105px;
+  bottom:165px;
   right:50px;
   border-radius: 50%;
   height: 50px;
@@ -670,10 +694,20 @@ input.submit{
   #menu{
     bottom:20px;
     right: 20px;
+    zoom: 80%;
+  }
+  #night-mode{
+    bottom:85px;
+    right: 20px;
+    zoom: 80%;
   }
   #gototop{
     right:20px;
-    bottom:75px;
+    bottom:150px;
+    zoom: 80%;
+  }
+  .changePage{
+    width: 83%;
   }
   .friends li {
 	width: 100%;
@@ -706,4 +740,5 @@ input.submit{
 }
 /* i */
 /* love */
-/* 486 */
+/* a girl so much but */
+/* SHE DOESNT LOVE ME */

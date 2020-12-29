@@ -16,7 +16,7 @@
         <?php endif; ?>
 
         <?php if($this->options->GHUrl != ''): ?>
-          <a href="<?php echo $this->options->GHUrl; ?>"><img src="<?php $this->options->themeUrl('ico/github.svg'); ?>"></img></a>
+          <a href="<?php echo $this->options->GHUrl; ?>"><img class="github-ico" src="<?php $this->options->themeUrl('ico/github-2.svg'); ?>"></img></a>
         <?php endif; ?>
 
         <?php if($this->options->TGUrl != ''): ?>
@@ -28,7 +28,6 @@
         <?php endif; ?>
       </div>
       <hr>
-
     </div>
 
     <div class="sliderbar-content" id="sliderbar-menu">
@@ -68,3 +67,4 @@
 
 <div id="menu-wrap" onclick="sliderbar_toggle()"></div>
 <img id="menu" src="<?php $this->options->themeUrl('ico/menu.svg'); ?>" onclick="sliderbar_toggle()" />
+<img id="night-mode" src="<?php $this->options->themeUrl('ico/night-1.svg'); ?>" onclick="switchNightMode()"/>

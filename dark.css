@@ -1,0 +1,71 @@
+html{
+  background: #2c2a2a;
+}
+h1,h2,h3,h4,h5,p,a,em,strong,li{
+  color: #909090!important;
+}
+.article-item p{
+  color: #909090;
+}
+.article-item span{
+  color: #909090;
+}
+.typo a {
+    border-bottom: 2px solid #909090!important;
+}
+.sliderbar-content{
+    background: rgba(0,0,0,0.2);
+    color: #909090;
+}
+#sliderbar-menu a {
+    font-weight: 600;
+    color: #909090;
+}
+#sliderbar-menu a:hover {
+    color: #fff!important;
+}
+#header-f {
+    background: RGBA(44,42,42,0.85)!important;
+    box-shadow: none;
+}
+#header h2 a img {
+    display: none;
+}
+#articleInfo{
+    background: RGBA(64,62,62,0.5);
+    border-left: 5px solid RGBA(64,62,62,1);
+}
+hr{
+  border-top: 3px solid rgba(64,62,62,1);
+}
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: rgba(64,62,62,0.5);
+}
+pre{
+  border: none;
+}
+.comment-body {
+    border-bottom: none;
+}
+#comment-form textarea,#comment-form .text{
+    border: 2px solid rgba(64,62,62,1);
+    background: rgba(64,62,62,0.6);
+    color:#909090;
+}
+.OwO .OwO-body .OwO-items .OwO-item {
+    background: rgba(64,62,62,0.6);
+}
+.friends li{
+  border-left: 2px solid #909090;
+}
+.link-item-content h3,.link-item-content span,.link-item-content span::before{
+    color: #909090!important;
+}
+@media screen and (max-width: 768px){
+  #sliderbar{
+    background: #2c2a2a;
+  }
+  .sliderbar-content {
+    background: rgba(0,0,0,0.0);
+  }
+}
