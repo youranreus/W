@@ -1,7 +1,9 @@
 window.onload = function(){
   emotion();
+  fixComment();
   nightModeBtn();
   scrollTopListener();
+
   Smilies = {
       dom: function(id) {
           return document.getElementById(id);
@@ -120,6 +122,23 @@ function emotion(){
   }
 }
 
+function fixComment(){
+  if(document.getElementsByClassName("comment-reply")){
+    let comments = document.getElementsByClassName("comment-reply");
+    let i = 0;
+    for(i;i<comments.length;i++){
+        comments[i].innerHTML = comments[i].innerHTML.replace('<a','<a data-no-instant');
+    }
+  }
+
+  if(document.getElementsByClassName("cancel-comment-reply")){
+    let comments = document.getElementsByClassName("cancel-comment-reply");
+    let i = 0;
+    for(i;i<comments.length;i++){
+        comments[i].innerHTML = comments[i].innerHTML.replace('<a','<a data-no-instant');
+    }
+  }
+}
 
 function OwO_show(){
    let OwOPanel = document.getElementById("OwO-container");

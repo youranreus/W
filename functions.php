@@ -27,6 +27,9 @@ function themeConfig($form) {
     $ICP = new Typecho_Widget_Helper_Form_Element_Text('ICP', NULL, NULL, _t('ICP备案号'), _t('你的备案号是什么🦆'));
     $form->addInput($ICP);
 
+    $profileBG = new Typecho_Widget_Helper_Form_Element_Text('profileBG', NULL, NULL, _t('侧边栏profile背景图'), _t('https://...'));
+    $form->addInput($profileBG);
+
     $enableImgShadow = new Typecho_Widget_Helper_Form_Element_Radio('enableImgShadow', array(
         '1' => _t('是') ,
         '0' => _t('否')

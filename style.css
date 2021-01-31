@@ -232,28 +232,61 @@ blockquote p{
     text-decoration: none!important;
 }
 #sliderbar-profile{
+  height: 80px;
+}
+.profile-background{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  z-index:-1;
+  opacity: 0.11;
+  -webkit-transition: 1s ease opacity;
+  -moz-transition: 1s ease opacity;
+  -ms-transition: 1s ease opacity;
+  -o-transition: 1s ease opacity;
+  transition: 1s ease opacity;
+}
+#sliderbar-profile-meta,#sliderbar-profile-social{
+  z-index: 2;
+}
+#sliderbar-profile-meta{
+  width: 30%;
   text-align: center;
+}
+#sliderbar-profile-social{
+  height: 80px;
+  width: 70%;
+}
+.sliderbar-profile-content{
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 80px;
+  width: 100%;
 }
 #sliderbar-profile h2{
   font-weight:600;
+  padding-bottom: 5px;
 }
-#sliderbar-profile hr{
-  margin: 10px auto 0px;
-}
-#sliderbar-profile img{
+#sliderbar-profile-avatar{
   border-radius: 50%;
-  height:5rem;
+  width: 80px;
 }
 #sliderbar-profile a{
   text-decoration: none;
   font-weight: 600;
   margin:0 10px;
 }
-#sliderbar-profile-social{
-  margin-top:10px;
-}
 #sliderbar-profile-social a img{
   width: 25px;
+  border-radius: 50%;
   height: 25px;
 }
 .github-ico{
@@ -538,8 +571,18 @@ input.submit{
 }
 .OwO{
   margin-top: 40px;
+  text-align: center;
 }
-
+.page-navigator{
+  text-align: center;
+}
+.page-navigator li{
+  display: inline-block;
+  margin: 0px 10px;
+}
+.page-navigator li.current{
+  border-bottom: 2px solid #909090;
+}
 
 /* footer */
 #footer{
@@ -665,6 +708,9 @@ input.submit{
     -webkit-backdrop-filter: none;
       backdrop-filter:none;
   }
+  .sliderbar-content {
+    border-radius: 0px;
+  }
   .header-fixed{
     background: RGBA(255,255,255,0.9)!important;
   }
@@ -723,7 +769,17 @@ input.submit{
     background: white;
   }
   #sliderbar-profile{
-    padding-top:50px;
+    height: auto;
+    padding-top: 40px;
+  }
+  #sliderbar-profile-meta,#sliderbar-profile-social{
+    width: 100%;
+  }
+  .sliderbar-profile-content {
+    text-align: center;
+    display: block;
+    vertical-align: unset;
+    height: auto;
   }
   .sliderbar-container{
     padding:0;
