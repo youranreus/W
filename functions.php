@@ -36,6 +36,12 @@ function themeConfig($form) {
     ) , '1', _t('给你的图片加上阴影') , _t('默认为开启'));
     $form->addInput($enableImgShadow);
 
+    $enableInstantclick = new Typecho_Widget_Helper_Form_Element_Radio('enableInstantclick', array(
+        '1' => _t('是') ,
+        '0' => _t('否')
+    ) , '0', _t('开启Instantclick预加载') , _t('默认为关闭，开启后评论可能有BUG（在修了在修了'));
+    $form->addInput($enableInstantclick);
+
     $CommentSwitcher = new Typecho_Widget_Helper_Form_Element_Radio('CommentSwitcher', array(
         '1' => _t('侧边栏') ,
         '0' => _t('文章末')

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/W/prism.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/W/typo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/G/CSS/OwO.min.css">
-    <link rel="alternate stylesheet" href="<?php $this->options->themeUrl('dark.css?v=1.98'); ?>" type="text/css" title="dark">
+    <link href="<?php $this->options->themeUrl('dark.css?v=1.98'); ?>" rel="<?php if($_COOKIE['night'] != '1'){echo 'alternate ';} ?>stylesheet" type="text/css" title="dark">
 
     <link rel="icon" type="image/png" href="<?php $this->options->logoUrl(); ?>">
     <link href="/favicon.ico" rel="icon">

@@ -8,8 +8,9 @@
 <?php $this->need('sliderbar.php'); ?>
 </body>
 <img id="gototop" src="<?php $this->options->themeUrl('ico/top.svg'); ?>"></img>
-<script src="https://cdn.bootcdn.net/ajax/libs/instantclick/3.1.0/instantclick.js"></script>
 <script data-no-instant src="<?php $this->options->themeUrl('W.js?v=1.48'); ?>"></script>
+<?php if ($this->options->enableInstantclick == 1): ?>
+<script src="https://cdn.bootcdn.net/ajax/libs/instantclick/3.1.0/instantclick.js"></script>
 <script data-no-instant>
   InstantClick.on('change', function(isInitialLoad) {
     if (isInitialLoad === false) {
@@ -25,6 +26,7 @@
   });
   InstantClick.init();
 </script>
+<?php endif;?>
 <script src="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/W/prism.js"></script>
 <script>
   <?php echo $this->options->CustomJSf;?>

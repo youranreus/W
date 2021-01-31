@@ -111,6 +111,7 @@ function removeClass(el, className){
     el.className = newClass.join(' ')
 }
 
+
 function emotion(){
   if(document.getElementsByClassName("comment-content")){
     let comments = document.getElementsByClassName("comment-content");
