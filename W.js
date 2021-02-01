@@ -1,9 +1,7 @@
 window.onload = function(){
-  emotion();
-  fixComment();
-  nightModeBtn();
-  scrollTopListener();
+  autoRun();
 
+  //评论表情定位
   Smilies = {
       dom: function(id) {
           return document.getElementById(id);
@@ -21,6 +19,15 @@ window.onload = function(){
 
 }
 
+//加载运行函数
+function autoRun(){
+  emotion();
+  fixComment();
+  nightModeBtn();
+  scrollTopListener();
+}
+
+//文章页滚动头部
 function scrollTopListener(){
   var client_height = document.documentElement.clientHeight || document.body.clientHeight;
   var gototop = document.getElementById('gototop');
@@ -51,6 +58,7 @@ function scrollTopListener(){
 }
 
 
+//滚动至顶部
 var timer = null;
 function scrollTop(){
 	cancelAnimationFrame(timer);
@@ -66,6 +74,7 @@ function scrollTop(){
 }
 gototop.addEventListener('click', scrollTop, false);
 
+//侧栏开关
 function sliderbar_toggle(){
   var bar = document.getElementById("sliderbar");
   var main = document.getElementById("main");
@@ -85,6 +94,7 @@ function sliderbar_toggle(){
 
 }
 
+//给元素添加Class
 function addClass(el, className) {
     if (hasClass(el, className)) {
         return
@@ -93,11 +103,12 @@ function addClass(el, className) {
     newClass.push(className)
     el.className = newClass.join(' ')
 }
-
+//判断元素是否有Class
 function hasClass(el, className) {
     let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
     return reg.test(el.className)
 }
+//给元素去除Class
 function removeClass(el, className){
     if (!hasClass(el, className)) {
         return
@@ -111,18 +122,61 @@ function removeClass(el, className){
     el.className = newClass.join(' ')
 }
 
-
+//评论表情解析
 function emotion(){
   if(document.getElementsByClassName("comment-content")){
     let comments = document.getElementsByClassName("comment-content");
     let i = 0;
     for(i;i<comments.length;i++){
+        var hex = '';
         comments[i].innerHTML = comments[i].innerHTML.replace(/\@\((.*?)\)/g,'<img src="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.9/G/IMG/bq/$1.png" class="bq">');
+        comments[i].innerHTML = comments[i].innerHTML.replace(/\#\((.*?)\)/g,function(){
+          hex = encodeURI(arguments[1]);
+          return '#('+hex+')';
+        });
+        comments[i].innerHTML = comments[i].innerHTML.replace(/\#\((.*?)\)/g,function(){
+          return '<img src="https://cdn.jsdelivr.net/gh/youranreus/R@.1.2.2/W/bq/aru/'+arguments[1].replace(/%/g,"")+'.png" class="bq">';
+        });
         comments[i].innerHTML = comments[i].innerHTML.replace(/\:\:(.*?)\:(.*?)\:\:/g,'<img src="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.8/W/bq/$1/$2.png" class="bq">');
     }
   }
 }
 
+//字符串转HEX
+function getAruFile(str) {
+  return str.replace(/%/g,"");
+}
+
+//lazyload准备
+function lazyloadReady(){
+  if(document.getElementsByClassName("typo")){
+    let typo = document.getElementsByClassName("typo");
+    let imgs =  document.getElementsByTagName("img");
+    let i = 0;
+    for(i;i<imgs.length;i++){
+        if(isParent(imgs[i],typo[0]) == true && !hasClass(imgs[i],"bq"))
+        {
+          imgs[i].setAttribute("data-src",imgs[i].src);
+          imgs[i].src = "http://www.tuchuangs.com/view.php/acfdba86b385cfb5b630c91587df5af8.gif";
+          addClass(imgs[i],'lazy');
+        }
+    }
+  }
+}
+
+//判断是否为父元素
+function isParent (obj,parentObj){
+    while (obj != undefined && obj != null && obj.tagName.toUpperCase() != 'BODY'){
+        if (obj == parentObj){
+            return true;
+        }
+        obj = obj.parentNode;
+    }
+    return false;
+}
+
+
+//instantclick评论定位修复
 function fixComment(){
   if(document.getElementsByClassName("comment-reply")){
     let comments = document.getElementsByClassName("comment-reply");
@@ -141,6 +195,7 @@ function fixComment(){
   }
 }
 
+//表情面板开关
 function OwO_show(){
    let OwOPanel = document.getElementById("OwO-container");
    if(hasClass(OwOPanel, 'display-none')){
@@ -152,6 +207,7 @@ function OwO_show(){
    }
 }
 
+//夜间模式开关
 function switchNightMode(){
     var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
     var night_btn = document.getElementById("night-mode");
@@ -169,6 +225,7 @@ function switchNightMode(){
     }
 }
 
+//夜间模式按钮控制
 function nightModeBtn(){
   if(document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") == ''){
       if(new Date().getHours() > 22 || new Date().getHours() < 6){

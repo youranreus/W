@@ -6,18 +6,21 @@
   <p class="right"><a href="http://beian.miit.gov.cn/"><?php $this->options->ICP(); ?></a></p>
 </div><!-- end #footer -->
 <?php $this->need('sliderbar.php'); ?>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.0/dist/lazyload.min.js"></script>
 </body>
 <img id="gototop" src="<?php $this->options->themeUrl('ico/top.svg'); ?>"></img>
-<script data-no-instant src="<?php $this->options->themeUrl('W.js?v=1.48'); ?>"></script>
+<script data-no-instant src="<?php $this->options->themeUrl('W.js?v=1.50'); ?>"></script>
+<script>
+  lazyloadReady();
+  var lazyLoadInstance = new LazyLoad();
+</script>
 <?php if ($this->options->enableInstantclick == 1): ?>
 <script src="https://cdn.bootcdn.net/ajax/libs/instantclick/3.1.0/instantclick.js"></script>
+
 <script data-no-instant>
   InstantClick.on('change', function(isInitialLoad) {
     if (isInitialLoad === false) {
-      emotion();
-      fixComment();
-      nightModeBtn();
-      scrollTopListener();
+      autoRun();
       gototop.addEventListener('click', scrollTop, false);
       if(typeof(meting_api) !== 'undefined'){
         loadMeting();
