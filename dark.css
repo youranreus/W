@@ -17,6 +17,9 @@ h1,h2,h3,h4,h5,p,a,em,strong,li{
     background: rgba(0,0,0,0.2);
     color: #909090;
 }
+.sliderbar-profile-content  h2 a{
+  color: white!important;
+}
 #sliderbar-menu a {
     font-weight: 600;
     color: #909090;

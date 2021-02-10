@@ -27,6 +27,9 @@ function themeConfig($form) {
     $ICP = new Typecho_Widget_Helper_Form_Element_Text('ICP', NULL, NULL, _t('ICP备案号'), _t('你的备案号是什么🦆'));
     $form->addInput($ICP);
 
+    $createDate = new Typecho_Widget_Helper_Form_Element_Text('createDate', NULL, NULL, _t('建站日期'), _t('什么时候开始建站的🦆'));
+    $form->addInput($createDate);
+
     $profileBG = new Typecho_Widget_Helper_Form_Element_Text('profileBG', NULL, NULL, _t('侧边栏profile背景图'), _t('https://...'));
     $form->addInput($profileBG);
 
@@ -47,6 +50,12 @@ function themeConfig($form) {
         '0' => _t('文章末')
     ) , '1', _t('评论框位置') , _t('默认为侧边栏'));
     $form->addInput($CommentSwitcher);
+
+    $cardSliderbar = new Typecho_Widget_Helper_Form_Element_Radio('cardSliderbar', array(
+        '1' => _t('开启') ,
+        '0' => _t('不开启')
+    ) , '0', _t('移动端开启卡片式侧边栏') , _t('默认不开启'));
+    $form->addInput($cardSliderbar);
 
     $CustomCSS = new Typecho_Widget_Helper_Form_Element_Textarea('CustomCSS', NULL, NULL, _t('自定义CSS'), _t('#logo{...}'));
     $form->addInput($CustomCSS);
@@ -203,4 +212,69 @@ function emotionContent($content,$url)
     $fcontent = preg_replace('#\@\((.*?)\)#','<img src="https://cdn.jsdelivr.net/gh/youranreus/R@v1.0.3/G/IMG/bq/$1.png" class="bq">',$content);
     //输出最终结果
     echo $fcontent;
+}
+
+function getBuildTime($date){
+  // 在下面按格式输入本站创建的时间
+  if($date == ''){
+    echo '';
+    return;
+  }
+
+  $site_create_time = strtotime($date);
+  $time = time() - $site_create_time;
+  if(is_numeric($time)){
+    $value = array(
+      "years" => 0, "days" => 0, "hours" => 0,
+      "minutes" => 0, "seconds" => 0,
+    );
+    $value["days"] = floor($time/86400);
+
+
+    echo '<span class="btime">'.$value['days'].' Days</span>';
+  }else{
+    echo '';
+  }
+}
+
+
+function prev_post($archive)
+{
+  $db = Typecho_Db::get();
+  $content = $db->fetchRow($db->select()
+                              ->from('table.contents')
+                              ->where('table.contents.created < ?', $archive->created)
+                              ->where('table.contents.status = ?', 'publish')
+                              ->where('table.contents.type = ?', $archive->type)
+                              ->where('table.contents.password IS NULL')
+                              ->order('table.contents.created', Typecho_Db::SORT_DESC)
+                              ->limit(1));
+  if ($content)
+  {
+    $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+    echo '<a class="prev" href="' . $content['permalink'] . '" rel="prev"><span>上一篇</span><br/>' . $content['title'] . '</a>';
+  } else {
+    echo "<a class=\"prev\"><span>\xf0\x9F\x98\xb6</span><br/>没有更多了</a>";
+  }
+}
+
+function next_post($archive)
+{
+  $db = Typecho_Db::get();
+  $content = $db->fetchRow($db->select()
+                              ->from('table.contents')
+                              ->where('table.contents.created > ? AND table.contents.created < ?', $archive->created, Helper::options()->gmtTime)
+                              ->where('table.contents.status = ?', 'publish')
+                              ->where('table.contents.type = ?', $archive->type)
+                              ->where('table.contents.password IS NULL')
+                              ->order('table.contents.created', Typecho_Db::SORT_ASC)
+                              ->limit(1));
+
+  if ($content)
+  {
+    $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+    echo '<a class="next" href="' . $content['permalink'] . '" rel="next"><span>下一篇</span><br/>' . $content['title'] . '</a>';
+  } else {
+    echo "<a class=\"next\"><span>\xf0\x9F\x98\xb6</span><br/>没有更多了</a>";
+  }
 }

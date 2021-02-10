@@ -11,10 +11,19 @@
      <hr>
   </div>
 
+  <div class="blog-bottom-bar clear">
+      <?php
+        prev_post($this);
+        next_post($this);
+      ?>
+  </div>
+
   <div id="articleInfo">
     <p class="tags"><?php _e('标签: '); ?><?php $this->tags(', ', true, '莫得'); ?></p>
     <p>文档最后编辑于<?php echo formatTime($this->modified);?> </p>
   </div>
+
+
 </div><!-- end #articleBody-->
 
 <?php if ($this->options->CommentSwitcher == 0): ?>

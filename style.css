@@ -289,8 +289,14 @@ blockquote p{
   border-radius: 50%;
   height: 25px;
 }
-.github-ico{
+/* .github-ico{
     background: rgba(0,0,0,0.4);
+} */
+.bili-ico{
+  background: white;
+  padding: 3px;
+  width: 19px!important;
+  height: 19px!important;
 }
 #sliderbar-toc h3{
   border-left:3px solid #eee;
@@ -435,6 +441,37 @@ a.prev{
 video{
   width: 100%;
 }
+.blog-bottom-bar {
+  display: block;
+  position: relative;
+  color: inherit;
+}
+
+.blog-bottom-bar .blog-container .prev, .blog-bottom-bar .blog-container .next {
+  display: inline-block;
+  position: relative;
+  padding: 2em 0;
+  width: 50%;
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.125em;
+  font-weight: 500;
+  vertical-align: top;
+}
+.blog-bottom-bar  .prev:hover, .blog-bottom-bar  .next:hover {
+  color: #6b6b6b;
+}
+
+.blog-bottom-bar  .prev span, .blog-bottom-bar .next span {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.blog-bottom-bar  .next {
+  text-align: right;
+  color: inherit;
+}
+
 
 
 /* comment */

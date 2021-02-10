@@ -2,7 +2,7 @@
 </div><!-- end main -->
 
 <div id="footer" class="clear">
-  <p class="left">Made with ❤️ by <a href="https://季悠然.space">季悠然</a></p>
+  <p class="left">Made with ❤️ by <a href="https://季悠然.space">季悠然</a> | <?php getBuildTime($this->options->createDate); ?></p>
   <p class="right"><a href="http://beian.miit.gov.cn/"><?php $this->options->ICP(); ?></a></p>
 </div><!-- end #footer -->
 <?php $this->need('sliderbar.php'); ?>

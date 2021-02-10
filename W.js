@@ -157,7 +157,7 @@ function lazyloadReady(){
         if(isParent(imgs[i],typo[0]) == true && !hasClass(imgs[i],"bq"))
         {
           imgs[i].setAttribute("data-src",imgs[i].src);
-          imgs[i].src = "http://www.tuchuangs.com/view.php/acfdba86b385cfb5b630c91587df5af8.gif";
+          imgs[i].src = "https://www.tuchuangs.com/view.php/acfdba86b385cfb5b630c91587df5af8.gif";
           addClass(imgs[i],'lazy');
         }
     }

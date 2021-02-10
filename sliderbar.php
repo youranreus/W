@@ -14,19 +14,19 @@
         <div class="sliderbar-profile-content">
           <h2><a href="<?php Helper::options()->siteUrl()?>"><?php $this->author(); ?></a></h2>
           <?php if($this->options->bilibiliUrl != ''): ?>
-            <a href="<?php echo $this->options->bilibiliUrl; ?>"><img src="<?php $this->options->themeUrl('ico/bilibili.svg'); ?>"></img></a>
+            <a href="<?php echo $this->options->bilibiliUrl; ?>"><img  class="bili-ico" src="<?php $this->options->themeUrl('ico/bilibili.svg?v=1.1'); ?>"></img></a>
           <?php endif; ?>
 
           <?php if($this->options->GHUrl != ''): ?>
-            <a href="<?php echo $this->options->GHUrl; ?>"><img class="github-ico" src="<?php $this->options->themeUrl('ico/github-2.svg'); ?>"></img></a>
+            <a href="<?php echo $this->options->GHUrl; ?>"><img class="github-ico" src="<?php $this->options->themeUrl('ico/github.svg?v=1.1'); ?>"></img></a>
           <?php endif; ?>
 
           <?php if($this->options->TGUrl != ''): ?>
-            <a href="<?php echo $this->options->TGUrl; ?>"><img src="<?php $this->options->themeUrl('ico/telegram.svg'); ?>"></img></a>
+            <a href="<?php echo $this->options->TGUrl; ?>"><img src="<?php $this->options->themeUrl('ico/telegram.svg?v=1.3'); ?>"></img></a>
           <?php endif; ?>
 
           <?php if($this->options->weiboUrl != ''): ?>
-            <a href="<?php echo $this->options->weiboUrl; ?>"><img src="<?php $this->options->themeUrl('ico/weibo.svg'); ?>"></img></a>
+            <a href="<?php echo $this->options->weiboUrl; ?>"><img src="<?php $this->options->themeUrl('ico/weibo.svg?v=1.1'); ?>"></img></a>
           <?php endif; ?>
         </div>
       </div>

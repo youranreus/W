@@ -14,11 +14,11 @@
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css?v=1.994'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css?v=1.997'); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/W/prism.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/W/typo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.0/G/CSS/OwO.min.css">
-    <link href="<?php $this->options->themeUrl('dark.css?v=1.98'); ?>" rel="<?php if($_COOKIE['night'] != '1'){echo 'alternate ';} ?>stylesheet" type="text/css" title="dark">
+    <link href="<?php $this->options->themeUrl('dark.css?v=1.99'); ?>" rel="<?php if($_COOKIE['night'] != '1'){echo 'alternate ';} ?>stylesheet" type="text/css" title="dark">
 
     <link rel="icon" type="image/png" href="<?php $this->options->logoUrl(); ?>">
     <link href="/favicon.ico" rel="icon">
@@ -26,6 +26,14 @@
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
+    <?php if ($this->is('post')) : ?>
+      <meta property="og:type" content="article"/>
+      <meta property="article:published_time" content="<?php $this->date('c'); ?>"/>
+      <meta property="article:author" content="<?php $this->author(); ?>" />
+      <meta property="article:published_first" content="<?php $this->options->title() ?>, <?php $this->permalink() ?>" />
+      <meta property="og:title" content="<?php $this->title() ?>" />
+      <meta property="og:url" content="<?php $this->permalink() ?>" />
+    <?php endif; ?>
 
     <script>
       <?php echo $this->options->CustomJSh;?>
@@ -66,6 +74,19 @@
       margin-bottom: 20px;
     }
 
+    <?php endif; ?>
+
+    <?php if ($this->options->cardSliderbar == 1): ?>
+    @media screen and (max-width: 768px){
+      .sliderbar-content {
+          border-radius: 10px;
+          background: rgba(255,255,255,0.02);
+          margin-bottom: 15px;
+      }
+      .sliderbar-container{
+        padding: 10px;
+      }
+    }
     <?php endif; ?>
 
     <?php echo $this->options->CustomCSS;?>

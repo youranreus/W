@@ -4,7 +4,7 @@
  *
  * @package Typecho Theme W
  * @author 季悠然
- * @version 1.1
+ * @version 1.2
  * @link https://季悠然.space
  */
 
