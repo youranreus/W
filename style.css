@@ -233,6 +233,7 @@ blockquote p{
 }
 #sliderbar-profile{
   height: 80px;
+  position: relative;
 }
 .profile-background{
   display: block;
@@ -472,6 +473,14 @@ video{
   color: inherit;
 }
 
+
+/* bangumi */
+.bgm-header{
+  height: 75px;
+}
+.bgm-header h3,.bgm-header p{
+  display: inline-block;
+}
 
 
 /* comment */

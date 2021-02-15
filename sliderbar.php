@@ -2,6 +2,7 @@
 
   <div class="sliderbar-container">
     <div id="sliderbar-profile" class="sliderbar-content clear">
+
       <div id="sliderbar-profile-meta" class="left">
         <?php if($this->options->avatarUrl != ''): ?>
           <img id="sliderbar-profile-avatar" src="<?php echo $this->options->avatarUrl; ?>"/>
@@ -30,6 +31,7 @@
           <?php endif; ?>
         </div>
       </div>
+
       <div class="profile-background" style="background-image: url(<?php echo $this->options->profileBG; ?>);"></div>
     </div>
 
