@@ -395,10 +395,10 @@ blockquote p {
 }
 
 #header-f {
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  background: RGBA(255, 255, 255, 0.85);
-  box-shadow: 0 0.3125rem 0.3125rem -0.3125rem rgba(0, 0, 0, 0.117);
+  /* -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); */
+  background: RGBA(255, 255, 255, 1);
+  /* box-shadow: 0 0.3125rem 0.3125rem -0.3125rem rgba(0, 0, 0, 0.117); */
   transition: all .5s;
   width: 800px;
   z-index: 990;
@@ -471,10 +471,6 @@ a.prev {
   color: #2D3748;
 }
 
-#articleContent {
-  font-family: 'Noto Serif SC' !important;
-}
-
 #articleInfo {
   margin: 50px 0 0 0;
   padding: 7px 0px 4px 15px;
@@ -486,6 +482,10 @@ a.prev {
 
 video {
   width: 100%;
+}
+
+code {
+  color: #DD4A68;
 }
 
 .blog-bottom-bar {
